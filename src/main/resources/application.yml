@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: xmall-product
+  datasource:
+    url: jdbc:mysql://mysql.orkva.com:3307/xmall_product?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 7#f82CF3K8jwAq&Zp*L2489tPK*9E@78
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      auto-commit: true
