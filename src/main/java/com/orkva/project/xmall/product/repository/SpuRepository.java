@@ -1,7 +1,7 @@
-package com.orkva.xmall.product.repository;
+package com.orkva.project.xmall.product.repository;
 
 import com.orkva.xmall.common.repository.BaseRepository;
-import com.orkva.xmall.product.entity.pojo.Spu;
+import com.orkva.project.xmall.product.entity.pojo.Spu;
 
 /**
  * SpuRepository

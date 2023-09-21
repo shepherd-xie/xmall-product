@@ -1,4 +1,4 @@
-package com.orkva.xmall.product.entity.pojo;
+package com.orkva.project.xmall.product.entity.pojo;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -8,24 +8,22 @@ import org.hibernate.generator.EventType;
 import java.time.Instant;
 
 /**
- * Sku
+ * SkuParam
  *
  * @author Shepherd Xie
  * @version 2023/8/18
  */
 @Entity
 @Data
-@Table(name = "tb_sku")
-public class Sku {
+@Table(name = "tb_sku_params")
+public class SkuParam {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long spuId;
-    private String title;
-    private Long price;
-    private Boolean saleable;
-    private Boolean valid;
+    private Long skuId;
+    private String name;
+    private String value;
 
     @Generated
     private Instant createdDate;

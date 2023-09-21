@@ -1,4 +1,4 @@
-package com.orkva.xmall.product.config;
+package com.orkva.project.xmall.product.config;
 
 import com.orkva.xmall.common.config.SnowflakeIdConfig;
 import com.orkva.xmall.common.config.SwaggerConfig;

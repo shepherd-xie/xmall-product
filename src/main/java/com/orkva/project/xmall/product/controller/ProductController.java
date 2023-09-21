@@ -1,4 +1,4 @@
-package com.orkva.xmall.product.controller;
+package com.orkva.project.xmall.product.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

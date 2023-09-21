@@ -1,4 +1,4 @@
-package com.orkva.xmall.product.config;
+package com.orkva.project.xmall.product.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,14 +1,52 @@
+buildscript {
+    ext {
+        baseVersion = '0.0.1-SNAPSHOT'
+        projectJavaVersion = '17'
+        projectGradleVersion = '8.3'
+
+        springCloudVersion = '2022.0.4'
+        springBootVersion = '3.1.2'
+        springBootPluginVersion = '3.1.2'
+        springDependencyManagementVersion = '1.1.2'
+        springDocVersion = '2.1.0'
+        lombokVersion = '1.18.26'
+
+        xmallCommonVersion = '0.0.1-SNAPSHOT'
+        xmallAuthClientVersion = '0.0.1-SNAPSHOT'
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootPluginVersion}")
+    }
+}
+
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.1.2'
-    id 'io.spring.dependency-management' version '1.1.2'
+    id 'java-library'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+    }
 }
 
 group = 'com.orkva.xmall'
-version = '0.0.1-SNAPSHOT'
+version = baseVersion
 
-java {
-    sourceCompatibility = '17'
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    maven {
+        url 'https://maven.aliyun.com/repository/spring/'
+    }
+    maven {
+        url 'https://plugins.gradle.org/m2/'
+    }
+    mavenCentral()
 }
 
 configurations {
@@ -17,25 +55,15 @@ configurations {
     }
 }
 
-repositories {
-    maven {
-        url 'https://maven.aliyun.com/repository/public/'
-    }
-    maven {
-        url 'https://maven.aliyun.com/repository/spring/'
-    }
-    mavenLocal()
-    mavenCentral()
-}
-
 dependencies {
-    implementation 'com.orkva.xmall:xmall-common:0.0.1-SNAPSHOT'
+    implementation "com.orkva.projects:xmall-common:${xmallCommonVersion}"
 
     implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
