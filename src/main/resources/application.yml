@@ -9,3 +9,6 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       auto-commit: true
+snowflake:
+  worker-id: 1
+  datacenter-id: 1

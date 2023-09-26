@@ -1,0 +1,20 @@
+### list sku
+GET http://localhost:8080/api/skus
+
+### page sku
+GET http://localhost:8080/api/skus/page
+
+### list sku by id
+GET http://localhost:8080/api/skus/batch?ids=1,2
+
+### create sku
+POST http://localhost:8080/api/skus
+Content-Type: application/json
+
+{
+  "spuId": 1,
+  "title": "title",
+  "price": 1000,
+  "saleable": true,
+  "valid": false
+}

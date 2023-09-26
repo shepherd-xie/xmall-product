@@ -63,7 +63,8 @@ public class SkuController {
      * @return 包含分页结果的JSON结果
      */
     @GetMapping("/page")
-    public JsonResult<Page<SkuApiRecord>> pageSku(SkuApiQueryRecord skuApiQueryRecord, @PageableDefault Pageable pageable) {
+    public JsonResult<Page<SkuApiRecord>> pageSku(SkuApiQueryRecord skuApiQueryRecord,
+                                                  @PageableDefault Pageable pageable) {
         Page<SkuBizModel> skus = skuService.page(SkuApiConverter.toSkuBizModel(skuApiQueryRecord), pageable);
         return JsonResult.ok(SkuApiConverter.toSkuApiRecordPage(skus, pageable));
     }
@@ -75,7 +76,7 @@ public class SkuController {
      * @return 包含SKU信息的JSON结果
      */
     @GetMapping("/batch")
-    public JsonResult<List<Sku>> getSkusByIds(@RequestParam List<Long> ids) {
+    public JsonResult<List<Sku>> getSkusByIds(List<Long> ids) {
         List<Sku> skus = skuService.getSkusByIds(ids);
         return JsonResult.ok(skus);
     }
